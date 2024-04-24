@@ -2,7 +2,7 @@ const Note = require("../models/note")
 
 const fetchAllNotes = async (req, res) => {
     // 1. Get all Notes from DB
-    const notes = await Note.find();
+    const notes = await Note.find({});
     // 2. Send the notes back as a response
     res.json({notes: notes});
 };
@@ -51,9 +51,7 @@ const deleteNote = async (req, res) => {
     // 1. Get the id off the url
     const noteId = req.params.id
     // 2. Delete the record
-    await Note.deleteOne({
-        id: noteId
-    })
+    await Note.findByIdAndDelete(noteId)
     // 3. Send a Response
     res.json({success: "Record has been deleted successfully"});
 };
