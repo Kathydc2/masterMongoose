@@ -26,7 +26,7 @@ connectToDb();
 //---------------------------------Routing
 //-----------------------  GET all users - [READ]
 app.get("/", (req,res) => {
-    res.send("This is a Landing Page")
+    res.send("This a Landing Page")
 });
 // Obj: We want to establish CRUD routes for our Users Model
 app.get("/users", usersController.fetchAllUsers);
